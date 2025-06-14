@@ -1,3 +1,4 @@
+// Write a program to delete duplicate numbers from an array
 #include <stdio.h>
 
 void main () {
@@ -12,17 +13,19 @@ void main () {
         scanf("%d",&arr[i]);
     }
     for (int i=0;i<size;i++){
-        for(int j=1;j<size;j++){
+        for(int j=i+1;j<size;j++){
             if(arr[i] == arr[j]){
-                counter++;
+                for(int k=j;k<size-1;k++){
+                    arr[k] = arr[k+1];
+                }
+                size--;
+                j--;
             }
         }
     }
 
-    if (counter >= 1){
-        printf("Array contains duplicate numbers");
-    }
-    else{
-        printf("Array does not contains duplicate numbers");
+    printf("New array :");
+    for (int i=0;i<size;i++){
+        printf("%d ,",arr[i]);
     }
 }
