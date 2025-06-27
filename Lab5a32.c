@@ -41,7 +41,6 @@ void main () {
               ansMatrix[i][j] += arr1[i][k]*arr2[k][j];  
             }
         }
-        printf("\n");
     }
 
     for(int i=0;i<m1row;i++){
