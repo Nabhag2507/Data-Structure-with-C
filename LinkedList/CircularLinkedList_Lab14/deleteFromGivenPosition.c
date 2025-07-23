@@ -39,13 +39,6 @@ void deleteFromPosition(struct node** head, int index){
     else if(temp->link == temp){
         free(temp);
     }
-    // else if(index == 0){
-    //     prev->link = &curr;
-    //     curr = curr->link;
-
-    //     prev->link = curr->link;
-    //     free(curr);
-    // }
 
     else if(index == 0){
         struct node* last = *head;
@@ -91,12 +84,13 @@ void displayList(struct node* head) {
 
 void main() {
     struct node* head = NULL;
-    insertAtEnd(&head, 5);
     insertAtEnd(&head, 1);
-    insertAtEnd(&head, 3);
     insertAtEnd(&head, 2);
+    insertAtEnd(&head, 3);
     insertAtEnd(&head, 4);
-
+    insertAtEnd(&head, 5);
+    insertAtEnd(&head, 6);
+    insertAtEnd(&head, 7);
     int index;
     printf("At which index you want to delete number :");
     scanf("%d",&index);
