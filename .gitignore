@@ -4,3 +4,6 @@ TEMP.c
 .vscode/settings.json
 a.exe
 LinkedList/a.exe
+Trees/preOrderTraversal.c
+Trees/postOrderTraversal.c
+Trees/inOrderTraversal.c
