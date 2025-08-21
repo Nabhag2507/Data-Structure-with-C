@@ -29,18 +29,34 @@ struct node* insertNode(int info,struct node* root){
     return root;
 }
 
-void delete(int del,struct node* root){
+struct node* delete(int del,struct node* root){
     if(root == NULL){
-        return;
+        return root;
     }
-    else if(del == root->info){
-
+    else if(root->info > del){
+        root->lptr = delete(del,root->lptr);
     }
-    else if(del > root->info){
-
-    }else{
-
+    else if(root->info < del){
+        root->rptr = delete(del,root->rptr);
     }
+    else{
+        if(root->rptr == NULL){
+            struct node* left = root->lptr;
+            free(root);
+            return left;
+        }
+        else{
+            struct node* right = root->rptr;
+            struct node* temp = right;
+            while(temp->lptr != NULL){
+                temp = temp->lptr;
+            }
+            temp->lptr = root->lptr;
+            free(root);
+            return right;
+        }
+    }
+    return root;
 }
 
 void preOrderTraversal(struct node* root) {
@@ -61,5 +77,8 @@ void main () {
     root=insertNode(45,root);
     root=insertNode(35,root);
 
+    preOrderTraversal(root);
+    delete(10,root);
+    printf("\n");
     preOrderTraversal(root);
 }
